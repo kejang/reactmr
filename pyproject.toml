@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "reactmr"
+version = "0.1.0"
+description = "Rigid Motion Estimation using Accelerated Coordinate Descent (REACT) for MR Imaging"
+readme = "README.md"
+license = {file = "LICENSE"}
+authors = [{name = "Kwang Eun Jang", email = "kejang@gmail.com"}]
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.21",
+]
+
+[project.optional-dependencies]
+extra = [
+    "scipy",
+    "nlopt",
+    "scikit-learn",
+    "gradops",
+]
+denoise = [
+    "splitbregman",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.bumpversion]
+allow_dirty = false
+commit = false
+tag = false
+push_tag = false
+tag_name = "v{new_version}"
